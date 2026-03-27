@@ -50,7 +50,6 @@ h1{font-size:clamp(1.8rem,3.5vw,2.8rem);margin:0 0 1.75rem;font-weight:700;lette
 	object-fit:cover;
 	display:block;
 	background:#222;
-	border:3px solid transparent;
 	box-shadow:0 6px 18px rgba(0,0,0,0.6);
 	transition:transform 220ms cubic-bezier(.2,.8,.2,1),border-color 220ms ease,box-shadow 220ms ease;
 }
@@ -62,6 +61,7 @@ h1{font-size:clamp(1.8rem,3.5vw,2.8rem);margin:0 0 1.75rem;font-weight:700;lette
 .profile:focus img,
 .profile:focus-within img,
 .profile-icon:hover{
+    border:1px solid transparent;
 	border-color:#ffffff;
 	transform:translateY(-6px);
 	cursor:pointer;
