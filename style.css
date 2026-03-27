@@ -1,0 +1,86 @@
+:root{
+	--bg:#141414;
+	--accent:#e50914;
+	--text:#ffffff;
+	--muted:#b3b3b3;
+	--max-width:900px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+	margin:0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	background:linear-gradient(180deg,var(--bg) 0%, #0f0f0f 100%);
+	color:var(--text);
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+	min-height:100vh;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	padding:3rem 1rem;
+}
+
+main{width:100%;max-width:var(--max-width);text-align:center}
+
+h1{font-size:clamp(1.8rem,3.5vw,2.8rem);margin:0 0 1.75rem;font-weight:700;letter-spacing:0.02em}
+
+
+/* Perfil container: variante quadrada inspirada na interface atual da Netflix */
+.profiles, .profile-container{
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:center;
+	align-items:center;
+	gap:20px;
+	padding:0;
+	margin:0;
+}
+
+.profile{display:block;width:150px;text-decoration:none;color:inherit}
+.profile figure{margin:0;display:flex;flex-direction:column;align-items:center}
+
+/* Ícone/miniatura quadrada com borda levemente arredondada */
+.profile img,
+.profile-icon{
+	width:150px;
+	height:150px;
+	border-radius:6px;
+	object-fit:cover;
+	display:block;
+	background:#222;
+	border:3px solid transparent;
+	box-shadow:0 6px 18px rgba(0,0,0,0.6);
+	transition:transform 220ms cubic-bezier(.2,.8,.2,1),border-color 220ms ease,box-shadow 220ms ease;
+}
+
+.profile figcaption{margin-top:0.6rem;font-size:0.95rem;color:var(--muted)}
+
+/* Hover / focus: borda branca como no exemplo */
+.profile:hover img,
+.profile:focus img,
+.profile:focus-within img,
+.profile-icon:hover{
+	border-color:#ffffff;
+	transform:translateY(-6px);
+	cursor:pointer;
+}
+
+/* Focus visível para navegação por teclado */
+.profile:focus-visible{outline:3px solid rgba(255,255,255,0.12);border-radius:8px}
+
+@media (max-width:480px){
+	.profile{width:110px}
+	.profile img{width:110px;height:110px}
+	.profiles{gap:12px}
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion:reduce){
+	.profile img{transition:none}
+}
+
+/* Small utility */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
